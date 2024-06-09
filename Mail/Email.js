@@ -26,7 +26,7 @@ async function sendMail(fullName, email, message) {
   });
 
   const mailOptionsClient = {
-    from: process.env.MAIL_NAME,
+    from: process.env.MAIL_NAME_FROM,
     to: email,
     subject: "Thank you for Reaching Out",
     html: clientMail,
