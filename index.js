@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const { sendMail } = require("./Mail/Email.js");
+const {UserInfo} = require("./Mail/OnWake.js")
 // const {randomChars} = require("./anonymous.js");
 
 // env variables configuration
@@ -35,6 +36,12 @@ app.get("/wakeup", (req, res) => {
   res.status(200).send("Im up");
   console.log("waking up");
 });
+
+app.post("/sdfs",async (req, res)=>{
+  const {userInfo} = req.body;
+  await UserInfo(userInfo)
+  res.status(200)
+})
 
 // start server
 app.listen(3000, () => {
